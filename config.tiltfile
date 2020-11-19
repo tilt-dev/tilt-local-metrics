@@ -27,10 +27,16 @@ def configmap_yaml(name, namespace="", from_file=None, configmap_type=None):
   if from_file:
     if type(from_file) == "string":
       args.extend(["--from-file", from_file])
+      key, val = from_file.split('=')
+      if val:
+        watch_file(val)
       generator = True
     elif type(from_file) == "list":
       for f in from_file:
         args.extend(["--from-file", f])
+        key, val = f.split('=')
+        if val:
+           watch_file(val)
       generator = True
     else:
       fail("Bad from_file argument: %s" % from_file)
