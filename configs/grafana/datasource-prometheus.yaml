@@ -1,0 +1,7 @@
+apiVersion: 1
+
+datasources:
+- name: Prometheus
+  type: prometheus
+  url: http://tilt-local-metrics-prometheus:9090/
+  default: true
