@@ -20,7 +20,7 @@ spec:
       volumes:
         - name: config-vol
           configMap:
-            name: otel-collector-config
+            name: tilt-otel-collector-config
             items:
               - key: otel-collector-config
                 path: otel-collector-config.yaml
