@@ -1,5 +1,4 @@
-
-load('./config.tiltfile', 'configmap_create')
+load('ext://configmap', 'configmap_create')
 k8s_yaml('./configs/collector/collector.yaml')
 k8s_yaml('./configs/collector/config.yaml')
 k8s_yaml('./configs/prometheus/prometheus.yaml')
