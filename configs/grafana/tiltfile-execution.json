@@ -96,7 +96,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(tiltfile_exec_duration_dist_sum{error=\"0\"}[60s]) / rate(tiltfile_exec_duration_dist_count{error=\"0\"}[60s])",
+          "expr": "rate(tiltfile_exec_duration_dist_sum{error=\"0\"}[60s]) / rate(tiltfile_exec_duration_dist_count{error=\"0\"}[60s]) unless rate(tiltfile_exec_duration_dist_count{error=\"0\"}[60s]) == 0",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -105,7 +105,7 @@
           "refId": "B"
         },
         {
-          "expr": "tiltfile_exec_duration_dist_sum{error=\"0\"} / tiltfile_exec_duration_dist_count{error=\"0\"}",
+          "expr": "tiltfile_exec_duration_dist_sum{error=\"0\"} / tiltfile_exec_duration_dist_count{error=\"0\"} unless tiltfile_exec_duration_dist_count{error=\"0\"} == 0",
           "interval": "",
           "legendFormat": "session avg",
           "refId": "A"
@@ -230,7 +230,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(image_build_duration_dist_sum{build_error=\"0\"}[60s]) / rate(image_build_duration_dist_count{build_error=\"0\"}[60s])",
+          "expr": "rate(image_build_duration_dist_sum{build_error=\"0\"}[60s]) / rate(image_build_duration_dist_count{build_error=\"0\"}[60s]) unless rate(image_build_duration_dist_count{build_error=\"0\"}[60s]) == 0",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -239,7 +239,7 @@
           "refId": "B"
         },
         {
-          "expr": "image_build_duration_dist_sum{build_error=\"0\"} / image_build_duration_dist_count{build_error=\"0\"}",
+          "expr": "image_build_duration_dist_sum{build_error=\"0\"} / image_build_duration_dist_count{build_error=\"0\"} unless image_build_duration_dist_count{build_error=\"0\"} == 0",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "session avg: {{image_ref}}",
